@@ -21,7 +21,7 @@ export const NewVerificationForm = () => {
     if (success || error) return;
 
     if (!token) {
-      setError("Missing token!");
+      setError("Faltando o token!");
       return;
     }
 
@@ -31,8 +31,8 @@ export const NewVerificationForm = () => {
         setError(data.error);
       })
       .catch(() => {
-        setError("Something went wrong!");
-      })
+        setError("Algo deu errado!");
+      });
   }, [token, success, error]);
 
   useEffect(() => {
@@ -46,14 +46,10 @@ export const NewVerificationForm = () => {
       backButtonHref="/auth/login"
     >
       <div className="flex items-center w-full justify-center">
-        {!success && !error && (
-          <BeatLoader />
-        )}
+        {!success && !error && <BeatLoader />}
         <FormSuccess message={success} />
-        {!success && (
-          <FormError message={error} />
-        )}
+        {!success && <FormError message={error} />}
       </div>
     </CardWrapper>
-  )
-}
+  );
+};
