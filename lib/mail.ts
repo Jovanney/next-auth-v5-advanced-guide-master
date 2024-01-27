@@ -8,8 +8,8 @@ export const sendTwoFactorTokenEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: "onboarding@resend.dev",
     to: email,
-    subject: "2FA Code",
-    html: `<p>Your 2FA code: ${token}</p>`,
+    subject: "Código de Autenticação",
+    html: `<p>Seu Código: ${token}</p>`,
   });
 };
 
@@ -19,8 +19,8 @@ export const sendPasswordResetEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: "onboarding@resend.dev",
     to: email,
-    subject: "Reset your password",
-    html: `<p>Click <a href="${resetLink}">here</a> to reset password.</p>`,
+    subject: "Atualize sua senha",
+    html: `<p>Clique <a href="${resetLink}">aqui</a> para atualizar sua senha.</p>`,
   });
 };
 
@@ -30,7 +30,7 @@ export const sendVerificationEmail = async (email: string, token: string) => {
   await resend.emails.send({
     from: "onboarding@resend.dev",
     to: email,
-    subject: "Confirm your email",
-    html: `<p>Click <a href="${confirmLink}">here</a> to confirm email.</p>`,
+    subject: "Confirme seu Email",
+    html: `<p>Clique <a href="${confirmLink}">aqui</a> para confirmar seu email.</p>`,
   });
 };
