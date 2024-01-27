@@ -7,15 +7,12 @@ import {
   authRoutes,
   publicRoutes,
 } from "@/routes";
-import { currentRole } from "./lib/auth";
 
 const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
-  const role = currentRole();
-  console.log("role", role);
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
